@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Гостинный Дом</string>
+    <string name="google_app_id">1</string>
+    <string name="action_settings">Settings</string>
+    <string name="info">Общая информация:</string>
+    <string name="id">Артикул квартиры:</string>
+    <string name="place">Кол-во спальных мест:</string>
+    <string name="address">Адрес:</string>
+    <string name="type">Тип жилья:</string>
+    <string name="clas">Класс жилья:</string>
+    <string name="district">Район:</string>
+    <string name="price">Цена</string>
+    <string name="booking">Забронировать</string>
+    <string name="on_map">Расположение на карте</string>
+    <string name="title_activity_maps">Карта</string>
+    <string name="flat">Квартира</string>
+    <string name="text_booking">Ваш номер телефона *</string>
+    <string name="send">Отправить</string>
+    <string name="cancel">Я передумал</string>
+    <string name="text_booking_manager">Наш менеджер обязательно с вами свяжется!</string>
+    <string name="codephone">+7</string>
+</resources>

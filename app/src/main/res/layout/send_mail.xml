@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout01"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textViewPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/text_booking"
+        android:textAppearance="?android:attr/textAppearanceMedium">
+
+    </TextView>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:layout_margin="20dp"
+        android:digits="0123456789"
+        android:maxLength="12"
+        android:ems="12"
+        android:text="@string/codephone"
+        android:id="@+id/editTextPhone" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:id="@+id/textViewError" />
+
+    <TextView
+        android:id="@+id/textViewManager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="@string/text_booking_manager"
+        android:textAppearance="?android:attr/textAppearanceMedium">
+    </TextView>
+
+
+
+</LinearLayout>
