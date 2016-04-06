@@ -10,6 +10,12 @@
     <string name="type">Тип жилья:</string>
     <string name="clas">Класс жилья:</string>
     <string name="district">Район:</string>
+    <string name="district_vzletka">Взлетка</string>
+    <string name="district_okt">Октябрьский</string>
+    <string name="district_sovet">Советский</string>
+    <string name="district_rosha">Зеленая роща</string>
+    <string name="district_pr">Правый берег</string>
+    <string name="district_centr">Центральный</string>
     <string name="price">Цена</string>
     <string name="booking">Забронировать</string>
     <string name="on_map">Расположение на карте</string>
@@ -20,4 +26,12 @@
     <string name="cancel">Я передумал</string>
     <string name="text_booking_manager">Наш менеджер обязательно с вами свяжется!</string>
     <string name="codephone">+7</string>
+    <string name="map_type">Выберете тип карты</string>
+    <string name="map_normal">Нормальный</string>
+    <string name="map_satellite">Спутник</string>
+    <string name="map_terrain">Рельеф</string>
+    <string name="map_hybrid">Гибрид</string>
+    <string name="image_activity">Изображения</string>
+    <string name="my_location">Мое местоположение</string>
+    <string name="search_button">Сортировка и фильтры</string>
 </resources>

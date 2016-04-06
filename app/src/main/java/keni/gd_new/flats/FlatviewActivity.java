@@ -1,14 +1,14 @@
-package keni.gd_new;
+package keni.gd_new.flats;
 
-import android.app.Activity;
 import android.app.DialogFragment;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,28 +21,35 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+
+import keni.gd_new.R;
 import keni.gd_new.app.AppController;
 import keni.gd_new.mail.MailSendDialog;
+import keni.gd_new.maps.MapsActivity;
 
-public class FlatviewActivity extends Activity
+public class FlatviewActivity extends AppCompatActivity
 {
     private String id, image, title, clas, type, district;
     private int place, price;
+    private ArrayList<String> images_url;
 
     private GoogleMap googleMap;
     private double latitude, longitude;
     private float distance;
     DialogFragment booking;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flat_view);
-        booking = new MailSendDialog();
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#FF0000")));
+        initToolBar();
 
         ImageLoader imageLoader = AppController.getInstance().getImageLoader();
+
+        LinearLayout imagesLayout = (LinearLayout) findViewById(R.id.imagesLayout);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
 
         TextView textViewID = (TextView) findViewById(R.id.textID);
@@ -53,20 +60,27 @@ public class FlatviewActivity extends Activity
         TextView textViewPlace = (TextView) findViewById(R.id.textPlace);
         TextView textViewPrice = (TextView) findViewById(R.id.textViewPrice);
 
-        NetworkImageView images = (NetworkImageView) findViewById(R.id.images);
-
         Intent info = getIntent();
 
         id = info.getStringExtra("id");
-        image = info.getStringExtra("image");
         title = info.getStringExtra("title");
         clas = info.getStringExtra("class");
         type = info.getStringExtra("type");
         district = info.getStringExtra("district");
         place = info.getIntExtra("place", 0);
         price = info.getIntExtra("price", 0);
+        images_url = info.getStringArrayListExtra("images");
 
-        images.setImageUrl(image, imageLoader);
+
+        for (int i = 0; i < images_url.size(); i++)
+        {
+            NetworkImageView images_all = new NetworkImageView(FlatviewActivity.this);
+            images_all.setImageUrl(images_url.get(i), imageLoader);
+            images_all.setLayoutParams(layoutParams);
+            imagesLayout.addView(images_all);
+        }
+
+
         textViewID.setText(id);
         textViewAddress.setText(title);
         textViewClass.setText(clas);
@@ -77,7 +91,6 @@ public class FlatviewActivity extends Activity
 
 
         try {
-
             //Передача координат
             latitude = info.getDoubleExtra("latitude", 0);
             longitude = info.getDoubleExtra("longitude", 0);
@@ -91,7 +104,10 @@ public class FlatviewActivity extends Activity
             googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             googleMap.addMarker(marker);
 
-
+            //Запрет на приближение, прокручивание и поворачивания камеры
+            googleMap.getUiSettings().setZoomGesturesEnabled(false);
+            googleMap.getUiSettings().setScrollGesturesEnabled(false);
+            googleMap.getUiSettings().setRotateGesturesEnabled(false);
 
         }
 
@@ -102,11 +118,16 @@ public class FlatviewActivity extends Activity
 
     }
 
-
-
+    public void Images(View v)
+    {
+        Intent images = new Intent(FlatviewActivity.this, ImagesActivity.class);
+        images.putExtra("images_url", images_url);
+        startActivity(images);
+    }
 
     public void Booking(View v)
     {
+        booking = new MailSendDialog();
         Bundle args = new Bundle();
         args.putString("id", id);
         args.putString("title", title);
@@ -127,11 +148,9 @@ public class FlatviewActivity extends Activity
             }
         }
 
-        googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener()
-        {
+        googleMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
-            public void onMapClick(LatLng point)
-            {
+            public void onMapClick(LatLng point) {
                 Log.d("Map", "Map clicked");
                 Intent map = new Intent(FlatviewActivity.this, MapsActivity.class);
                 map.putExtra("latitude", latitude);
@@ -139,25 +158,24 @@ public class FlatviewActivity extends Activity
                 startActivity(map);
             }
         });
-
-
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem menuItem)
+    public void initToolBar()
     {
-        switch (menuItem.getItemId())
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.flat);
+
+        setSupportActionBar(toolbar);
+
+        toolbar.setNavigationIcon(R.drawable.ic_back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener()
         {
-            case android.R.id.home:
+            @Override
+            public void onClick(View v)
+            {
                 onBackPressed();
-                return true;
+            }
+        });
 
-            default:
-                return super.onOptionsItemSelected(menuItem);
-        }
     }
-
-
-
-
 }

@@ -10,7 +10,8 @@
         android:id="@+id/textViewPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:text="@string/text_booking"
         android:textAppearance="?android:attr/textAppearanceMedium">
 
@@ -20,7 +21,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="phone"
-        android:layout_margin="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:digits="0123456789"
         android:maxLength="12"
         android:ems="12"
@@ -31,14 +33,17 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/red"
+        android:layout_marginTop="10dp"
         android:id="@+id/textViewError" />
 
     <TextView
         android:id="@+id/textViewManager"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:text="@string/text_booking_manager"
         android:textAppearance="?android:attr/textAppearanceMedium">
     </TextView>

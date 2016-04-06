@@ -22,6 +22,7 @@
         android:layout_alignTop="@+id/thumbnail"
         android:layout_toRightOf="@+id/thumbnail"
         android:textSize="@dimen/title"
+        android:textColor="@color/black"
         android:textStyle="bold" />
 
     <!-- Rating -->
@@ -31,6 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/title"
         android:layout_marginTop="1dip"
+        android:textColor="@color/black"
         android:layout_toRightOf="@+id/thumbnail"
         android:textSize="@dimen/rating" />
     

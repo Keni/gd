@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/my_loc"
+        android:icon="@drawable/my_loc"
+        android:title="@string/my_location"
+        yourapp:showAsAction="always" />
+    <item
+        android:id="@+id/map_types"
+        android:icon="@drawable/map_menu"
+        android:title="@string/map_type"
+        yourapp:showAsAction="always" />
+</menu>

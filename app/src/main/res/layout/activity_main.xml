@@ -4,12 +4,33 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
+    <include layout="@layout/toolbar" />
+
     <ListView
         android:id="@+id/list"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
         android:divider="@color/list_divider"
         android:dividerHeight="1dp"
-        android:listSelector="@drawable/list_row_selector" />
+        android:listSelector="@drawable/list_row_selector"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/buttonSearch" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/search_button"
+        android:textColor="@color/white"
+        android:background="@color/red"
+        android:drawableLeft="@drawable/ic_search"
+        android:id="@+id/buttonSearch"
+        android:onClick="Search"
+        android:layout_alignParentBottom="true"
+        android:layout_alignWithParentIfMissing="false"
+        android:focusableInTouchMode="false"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

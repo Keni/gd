@@ -1,17 +1,22 @@
 package keni.gd_new.model;
 
+import java.util.ArrayList;
+
 /**
  * Created by Keni on 29.02.2016.
  */
-public class Movie {
+public class Flat
+{
     private String id, title, thumbnailUrl, rating, year, district;
     private int genre, place;
     private double latitude, longitude;
+    private ArrayList<String> images;
 
-    public Movie() {
+    public Flat()
+    {
     }
 
-    public Movie(String id, String name, String thumbnailUrl, String year, String rating, String district, int genre, int place, double latitude, double longitude)
+    public Flat(String id, String name, String thumbnailUrl, String year, String rating, String district, int genre, int place, double latitude, double longitude, ArrayList<String> images)
     {
         this.id = id;
         this.title = name;
@@ -22,6 +27,7 @@ public class Movie {
         this.genre = genre;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.images = images;
     }
 
     public String getId()
@@ -122,6 +128,16 @@ public class Movie {
     public void setLongitude(double longitude)
     {
         this.longitude = longitude;
+    }
+
+    public ArrayList<String> getImages()
+    {
+        return images;
+    }
+
+    public void setImages(ArrayList<String> images)
+    {
+        this.images = images;
     }
 
 }

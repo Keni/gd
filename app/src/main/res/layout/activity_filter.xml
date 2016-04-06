@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/toolbar"
+        android:id="@+id/include" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/district_vzletka"
+        android:id="@+id/checkBox_vzletka"
+        android:layout_below="@+id/include"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/district_okt"
+        android:id="@+id/checkBox_okt"
+        android:layout_below="@+id/checkBox_vzletka"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/district_sovet"
+        android:id="@+id/checkBox_sovet"
+        android:layout_below="@+id/checkBox_okt"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/district_rosha"
+        android:id="@+id/checkBox_rosha"
+        android:layout_below="@+id/include"
+        android:layout_alignLeft="@+id/checkBox_centr"
+        android:layout_alignStart="@+id/checkBox_centr" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/district_pr"
+        android:id="@+id/checkBox_pr"
+        android:layout_below="@+id/checkBox_centr"
+        android:layout_alignLeft="@+id/checkBox_centr"
+        android:layout_alignStart="@+id/checkBox_centr" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/district_centr"
+        android:id="@+id/checkBox_centr"
+        android:layout_marginLeft="60dp"
+        android:layout_marginStart="60dp"
+        android:layout_below="@+id/checkBox_rosha"
+        android:layout_toRightOf="@+id/checkBox_okt"
+        android:layout_toEndOf="@+id/checkBox_okt" />
+
+
+</RelativeLayout>
